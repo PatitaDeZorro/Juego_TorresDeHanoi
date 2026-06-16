@@ -1,0 +1,614 @@
+# ==============================================================================
+#  .gitattributes UNIVERSAL — Normalización de EOLs, diffs y merges
+# ==============================================================================
+
+
+# ==============================================================================
+# [0] REGLA POR DEFECTO
+# ==============================================================================
+* text=auto eol=lf
+
+
+# ==============================================================================
+# [1] DOCUMENTACIÓN Y TEXTO PLANO
+# ==============================================================================
+*.md            text eol=lf
+*.markdown      text eol=lf
+*.mdx           text eol=lf
+*.txt           text eol=lf
+*.rst           text eol=lf
+*.adoc          text eol=lf
+*.asciidoc      text eol=lf
+*.org           text eol=lf
+LICENSE         text eol=lf
+LICENSE.*       text eol=lf
+README          text eol=lf
+AUTHORS         text eol=lf
+CHANGELOG       text eol=lf
+CONTRIBUTING    text eol=lf
+COPYING         text eol=lf
+INSTALL         text eol=lf
+NOTICE          text eol=lf
+
+
+# ==============================================================================
+# [2] LaTeX — FUENTES (texto) Y AUXILIARES (no diffeables)
+# ==============================================================================
+*.tex           text eol=lf
+*.bib           text eol=lf
+*.cls           text eol=lf
+*.sty           text eol=lf
+*.dtx           text eol=lf
+*.ins           text eol=lf
+
+# Archivos auxiliares: si alguien los versiona accidentalmente,
+# al menos no ensucian el diff.
+*.aux           text eol=lf -diff
+*.bbl           text eol=lf -diff
+*.blg           text eol=lf -diff
+*.fdb_latexmk   text eol=lf -diff
+*.fls           text eol=lf -diff
+*.toc           text eol=lf -diff
+*.lof           text eol=lf -diff
+*.lot           text eol=lf -diff
+*.nav           text eol=lf -diff
+*.snm           text eol=lf -diff
+*.vrb           text eol=lf -diff
+*.synctex.gz    binary
+
+
+# ==============================================================================
+# [3] FORMATOS DE CONFIGURACIÓN Y DATOS
+# ==============================================================================
+*.json          text eol=lf
+*.json5         text eol=lf
+*.jsonc         text eol=lf
+*.yaml          text eol=lf
+*.yml           text eol=lf
+*.toml          text eol=lf
+*.ini           text eol=lf
+*.conf          text eol=lf
+*.properties    text eol=lf
+.editorconfig   text eol=lf
+.gitignore      text eol=lf
+.gitattributes  text eol=lf
+.gitconfig      text eol=lf
+.gitmodules     text eol=lf
+.mailmap        text eol=lf
+
+*.xml           text eol=lf
+*.csv           text eol=lf
+*.tsv           text eol=lf
+*.graphql       text eol=lf
+*.gql           text eol=lf
+
+# Graphviz
+*.dot           text eol=lf
+*.gv            text eol=lf
+
+
+# ==============================================================================
+# [4] SHELL Y SCRIPTS UNIX/LINUX/macOS — SIEMPRE LF
+# ==============================================================================
+*.sh            text eol=lf
+*.bash          text eol=lf
+*.zsh           text eol=lf
+*.fish          text eol=lf
+*.ksh           text eol=lf
+Makefile        text eol=lf
+makefile        text eol=lf
+GNUmakefile     text eol=lf
+*.mk            text eol=lf
+*.mak           text eol=lf
+*.cmake         text eol=lf
+CMakeLists.txt  text eol=lf
+Dockerfile      text eol=lf
+Dockerfile.*    text eol=lf
+*.dockerfile    text eol=lf
+
+
+# ==============================================================================
+# [5] WINDOWS — SIEMPRE CRLF
+# ==============================================================================
+*.bat           text eol=crlf
+*.cmd           text eol=crlf
+*.ps1           text eol=crlf
+*.psm1          text eol=crlf
+*.psd1          text eol=crlf
+*.reg           text eol=crlf
+
+# Soluciones y proyectos de Visual Studio
+*.sln           text eol=crlf
+*.slnx          text eol=crlf
+*.vcproj        text eol=crlf
+*.vcxproj       text eol=crlf
+*.vcxproj.filters text eol=crlf
+*.vcxproj.user  text eol=crlf
+*.csproj        text eol=crlf
+*.fsproj        text eol=crlf
+*.vbproj        text eol=crlf
+*.proj          text eol=crlf
+*.props         text eol=crlf
+*.targets       text eol=crlf
+
+# Manifest e instaladores Windows
+*.manifest      text eol=crlf
+*.rc            text eol=crlf
+*.def           text eol=crlf
+
+# Archivos opacos de Visual Studio
+*.suo           binary
+
+
+# ==============================================================================
+# [6] LENGUAJES — C / C++ / ASM
+# ==============================================================================
+*.c             text eol=lf
+*.cc            text eol=lf
+*.cpp           text eol=lf diff=cpp
+*.cxx           text eol=lf diff=cpp
+*.c++           text eol=lf diff=cpp
+*.h             text eol=lf
+*.hh            text eol=lf
+*.hpp           text eol=lf
+*.hxx           text eol=lf
+*.inl           text eol=lf
+*.ipp           text eol=lf
+*.tpp           text eol=lf
+*.asm           text eol=lf
+*.s             text eol=lf
+*.S             text eol=lf
+*.inc           text eol=lf
+
+
+# ==============================================================================
+# [7] LENGUAJES — Python
+# ==============================================================================
+*.py            text eol=lf diff=python
+*.pyw           text eol=lf diff=python
+*.pyx           text eol=lf
+*.pxd           text eol=lf
+*.pyi           text eol=lf
+*.ipynb         text eol=lf
+requirements.txt text eol=lf
+Pipfile         text eol=lf
+Pipfile.lock    text eol=lf -diff
+poetry.lock     text eol=lf -diff
+
+
+# ==============================================================================
+# [8] LENGUAJES — JavaScript / TypeScript / Node.js
+# ==============================================================================
+*.js            text eol=lf
+*.mjs           text eol=lf
+*.cjs           text eol=lf
+*.jsx           text eol=lf
+*.ts            text eol=lf
+*.tsx           text eol=lf
+*.vue           text eol=lf
+*.svelte        text eol=lf
+*.astro         text eol=lf
+package.json    text eol=lf
+package-lock.json text eol=lf -diff
+yarn.lock       text eol=lf -diff
+pnpm-lock.yaml  text eol=lf -diff
+.npmrc          text eol=lf
+.nvmrc          text eol=lf
+.node-version   text eol=lf
+
+
+# ==============================================================================
+# [9] LENGUAJES — Java / Kotlin / Gradle / Maven
+# ==============================================================================
+*.java          text eol=lf diff=java
+*.kt            text eol=lf diff=java
+*.kts           text eol=lf diff=java
+*.groovy        text eol=lf
+*.gradle        text eol=lf
+*.gradle.kts    text eol=lf
+gradlew         text eol=lf
+gradlew.bat     text eol=crlf
+*.pom           text eol=lf
+pom.xml         text eol=lf
+
+
+# ==============================================================================
+# [10] LENGUAJES — C# / .NET
+# ==============================================================================
+*.cs            text eol=crlf diff=csharp
+*.csx           text eol=crlf diff=csharp
+*.vb            text eol=crlf
+*.fs            text eol=crlf
+*.fsi           text eol=crlf
+*.fsx           text eol=crlf
+*.razor         text eol=crlf
+*.cshtml        text eol=crlf
+*.xaml          text eol=crlf
+*.resx          text eol=crlf
+*.config        text eol=crlf
+
+
+# ==============================================================================
+# [11] LENGUAJES — Ruby
+# ==============================================================================
+*.rb            text eol=lf diff=ruby
+*.rbw           text eol=lf
+*.gemspec       text eol=lf
+*.rake          text eol=lf
+Gemfile         text eol=lf
+Gemfile.lock    text eol=lf -diff
+Rakefile        text eol=lf
+
+
+# ==============================================================================
+# [12] LENGUAJES — Go
+# ==============================================================================
+*.go            text eol=lf diff=golang
+go.mod          text eol=lf
+go.sum          text eol=lf -diff
+
+
+# ==============================================================================
+# [13] LENGUAJES — Rust
+# ==============================================================================
+*.rs            text eol=lf diff=rust
+Cargo.toml      text eol=lf
+Cargo.lock      text eol=lf -diff
+
+
+# ==============================================================================
+# [14] LENGUAJES — Swift / Objective-C
+# ==============================================================================
+*.swift         text eol=lf
+*.m             text eol=lf
+*.mm            text eol=lf
+
+
+# ==============================================================================
+# [15] LENGUAJES — PHP
+# ==============================================================================
+*.php           text eol=lf diff=php
+*.phtml         text eol=lf
+*.phps          text eol=lf
+composer.json   text eol=lf
+composer.lock   text eol=lf -diff
+
+
+# ==============================================================================
+# [16] LENGUAJES — Dart / Flutter
+# ==============================================================================
+*.dart          text eol=lf
+pubspec.yaml    text eol=lf
+pubspec.lock    text eol=lf -diff
+
+
+# ==============================================================================
+# [17] LENGUAJES — R
+# ==============================================================================
+*.r             text eol=lf
+*.R             text eol=lf
+*.Rmd           text eol=lf
+*.Rproj         text eol=lf
+DESCRIPTION     text eol=lf
+NAMESPACE       text eol=lf
+
+
+# ==============================================================================
+# [18] LENGUAJES — Scala
+# ==============================================================================
+*.scala         text eol=lf
+*.sc            text eol=lf
+*.sbt           text eol=lf
+
+
+# ==============================================================================
+# [19] LENGUAJES — Haskell
+# ==============================================================================
+*.hs            text eol=lf
+*.lhs           text eol=lf
+*.cabal         text eol=lf
+stack.yaml      text eol=lf
+stack.yaml.lock text eol=lf -diff
+
+
+# ==============================================================================
+# [20] LENGUAJES — Elixir / Erlang
+# ==============================================================================
+*.ex            text eol=lf
+*.exs           text eol=lf
+*.erl           text eol=lf
+*.hrl           text eol=lf
+mix.exs         text eol=lf
+mix.lock        text eol=lf -diff
+
+
+# ==============================================================================
+# [21] LENGUAJES — Lua
+# ==============================================================================
+*.lua           text eol=lf
+*.luac          binary
+
+
+# ==============================================================================
+# [22] LENGUAJES — SQL
+# ==============================================================================
+*.sql           text eol=lf
+*.psql          text eol=lf
+*.tsql          text eol=lf
+
+
+# ==============================================================================
+# [23] LENGUAJES — OTROS
+# ==============================================================================
+*.pl            text eol=lf diff=perl
+*.pm            text eol=lf diff=perl
+*.t             text eol=lf
+*.clj           text eol=lf
+*.cljs          text eol=lf
+*.cljc          text eol=lf
+*.edn           text eol=lf
+*.nim           text eol=lf
+*.zig           text eol=lf
+*.cr            text eol=lf
+*.jl            text eol=lf
+*.tcl           text eol=lf
+*.vim           text eol=lf
+*.el            text eol=lf
+
+
+# ==============================================================================
+# [24] WEB Y FRONTEND
+# ==============================================================================
+*.html          text eol=lf diff=html
+*.htm           text eol=lf diff=html
+*.xhtml         text eol=lf
+*.css           text eol=lf diff=css
+*.scss          text eol=lf diff=css
+*.sass          text eol=lf
+*.less          text eol=lf
+*.styl          text eol=lf
+*.pcss          text eol=lf
+*.postcss       text eol=lf
+
+# Plantillas
+*.ejs           text eol=lf
+*.pug           text eol=lf
+*.jade          text eol=lf
+*.hbs           text eol=lf
+*.handlebars    text eol=lf
+*.mustache      text eol=lf
+*.liquid        text eol=lf
+*.njk           text eol=lf
+*.twig          text eol=lf
+
+
+# ==============================================================================
+# [25] INFRAESTRUCTURA Y DEVOPS
+# ==============================================================================
+.dockerignore           text eol=lf
+docker-compose.yml      text eol=lf
+docker-compose.yaml     text eol=lf
+
+# Kubernetes / Helm
+*.tpl           text eol=lf
+Chart.yaml      text eol=lf
+values.yaml     text eol=lf
+
+# Terraform / IaC
+*.tf            text eol=lf
+*.tfvars        text eol=lf
+*.hcl           text eol=lf
+*.tfstate       text eol=lf -diff
+*.tfstate.backup text eol=lf -diff
+
+# Ansible
+*.j2            text eol=lf
+
+# CI/CD
+.gitlab-ci.yml  text eol=lf
+.travis.yml     text eol=lf
+Jenkinsfile     text eol=lf
+azure-pipelines.yml      text eol=lf
+appveyor.yml    text eol=lf
+bitbucket-pipelines.yml  text eol=lf
+
+
+# ==============================================================================
+# [26] IMÁGENES — BINARIOS
+# ==============================================================================
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.bmp           binary
+*.ico           binary
+*.icns          binary
+*.tif           binary
+*.tiff          binary
+*.webp          binary
+*.avif          binary
+*.heic          binary
+*.heif          binary
+*.raw           binary
+*.psd           binary
+*.ai            binary
+*.eps           binary
+*.indd          binary
+*.xcf           binary
+
+# SVG es XML pero lo tratamos como texto
+*.svg           text eol=lf
+
+
+# ==============================================================================
+# [27] AUDIO Y VIDEO — BINARIOS
+# ==============================================================================
+*.mp3           binary
+*.wav           binary
+*.flac          binary
+*.ogg           binary
+*.oga           binary
+*.m4a           binary
+*.aac           binary
+*.opus          binary
+*.aif           binary
+*.aiff          binary
+
+*.mp4           binary
+*.m4v           binary
+*.mkv           binary
+*.avi           binary
+*.mov           binary
+*.wmv           binary
+*.flv           binary
+*.webm          binary
+*.ogv           binary
+*.3gp           binary
+
+
+# ==============================================================================
+# [28] DOCUMENTOS Y OFIMÁTICA — BINARIOS
+# ==============================================================================
+*.pdf           binary
+*.doc           binary
+*.docx          binary
+*.dotx          binary
+*.odt           binary
+*.rtf           binary
+*.xls           binary
+*.xlsx          binary
+*.ods           binary
+*.ppt           binary
+*.pptx          binary
+*.odp           binary
+*.pages         binary
+*.numbers       binary
+*.key           binary
+*.epub          binary
+*.mobi          binary
+*.azw3          binary
+*.djvu          binary
+
+
+# ==============================================================================
+# [29] ARCHIVOS COMPRIMIDOS — BINARIOS
+# ==============================================================================
+*.7z            binary
+*.zip           binary
+*.tar           binary
+*.tar.gz        binary
+*.tgz           binary
+*.tar.bz2       binary
+*.tbz2          binary
+*.tar.xz        binary
+*.txz           binary
+*.gz            binary
+*.bz2           binary
+*.xz            binary
+*.rar           binary
+*.lz            binary
+*.lzma          binary
+*.lzo           binary
+*.zst           binary
+*.cab           binary
+*.iso           binary
+*.dmg           binary
+
+
+# ==============================================================================
+# [30] EJECUTABLES, BIBLIOTECAS Y OBJETOS COMPILADOS — BINARIOS
+# ==============================================================================
+*.exe           binary
+*.dll           binary
+*.so            binary
+*.so.*          binary
+*.dylib         binary
+*.a             binary
+*.lib           binary
+*.o             binary
+*.obj           binary
+*.app           binary
+*.bin           binary
+*.elf           binary
+*.com           binary
+*.msi           binary
+*.deb           binary
+*.rpm           binary
+*.apk           binary
+*.aab           binary
+*.ipa           binary
+*.jar           binary
+*.war           binary
+*.ear           binary
+*.class         binary
+*.pyc           binary
+*.pyo           binary
+*.pyd           binary
+*.wasm          binary
+
+
+# ==============================================================================
+# [31] FUENTES Y TIPOGRAFÍAS — BINARIOS
+# ==============================================================================
+*.ttf           binary
+*.otf           binary
+*.woff          binary
+*.woff2         binary
+*.eot           binary
+
+
+# ==============================================================================
+# [32] MODELOS 3D, JUEGOS Y DISEÑO — BINARIOS
+# ==============================================================================
+*.fbx           binary
+*.glb           binary
+*.blend         binary
+*.stl           binary
+*.3ds           binary
+*.unitypackage  binary
+*.uasset        binary
+*.umap          binary
+*.gltf          text eol=lf
+*.dae           text eol=lf
+
+
+# ==============================================================================
+# [33] BASES DE DATOS — BINARIOS
+# ==============================================================================
+*.db            binary
+*.sqlite        binary
+*.sqlite3       binary
+*.mdb           binary
+*.accdb         binary
+*.dbf           binary
+
+
+# ==============================================================================
+# [34] CERTIFICADOS Y CLAVES — BINARIOS
+# ==============================================================================
+# El .gitignore los excluye, pero por si acaso se cuelan: que sean binarios.
+*.pfx           binary
+*.p12           binary
+*.cer           binary
+*.crt           binary
+*.der           binary
+*.jks           binary
+*.keystore      binary
+
+
+# ==============================================================================
+# [35] ARCHIVOS GENERADOS — NO CONTAR EN ESTADÍSTICAS DE LINGUIST
+# ==============================================================================
+*.min.js                linguist-generated
+*.min.css               linguist-generated
+*.map                   linguist-generated
+*.bundle.js             linguist-generated
+*.bundle.css            linguist-generated
+dist/**                 linguist-generated
+build/**                linguist-generated
+out/**                  linguist-generated
+
+# Documentación auto-generada
+docs/_build/**          linguist-documentation
+docs/build/**           linguist-documentation
+site/**                 linguist-documentation

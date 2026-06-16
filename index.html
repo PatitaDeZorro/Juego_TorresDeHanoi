@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Juego web de Torres de Hanoi con dificultades, puntuaciones locales y sistema de estrellas." />
+  <meta name="theme-color" content="#101820" />
+  <meta property="og:title" content="Torres de Hanoi" />
+  <meta property="og:description" content="Resuelve el rompecabezas de Torres de Hanoi en una experiencia web estática lista para GitHub Pages." />
+  <meta property="og:type" content="website" />
+  <title>Torres de Hanoi</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <main>
+    <!-- Pantalla inicial: concentra las entradas principales del juego. -->
+    <section id="homeScreen" class="screen center-screen active" aria-labelledby="homeTitle">
+      <div class="home-layout">
+        <div>
+          <span class="lead-icon"><i class="bi bi-building-up" aria-hidden="true"></i></span>
+          <p class="eyebrow">Reto de l&oacute;gica</p>
+          <h1 id="homeTitle">Torres de Hanoi</h1>
+          <p class="intro">Ordena los discos respetando una regla simple: nunca pongas un disco grande sobre uno peque&ntilde;o.</p>
+          <div class="menu-actions home-actions">
+            <button id="playBtn" class="primary" type="button"><i class="bi bi-play-fill" aria-hidden="true"></i>Jugar</button>
+            <button id="howToBtn" type="button"><i class="bi bi-question-circle" aria-hidden="true"></i>C&oacute;mo jugar</button>
+            <button id="scoresBtn" type="button"><i class="bi bi-trophy" aria-hidden="true"></i>Mejores puntuaciones</button>
+          </div>
+        </div>
+        <div class="hero-stage" aria-hidden="true">
+          <div class="mini-tower">
+            <span class="mini-disk four"></span>
+            <span class="mini-disk three"></span>
+            <span class="mini-disk two"></span>
+            <span class="mini-disk one"></span>
+          </div>
+          <div class="mini-tower">
+            <span class="mini-disk two"></span>
+            <span class="mini-disk one"></span>
+          </div>
+          <div class="mini-tower">
+            <span class="mini-disk one"></span>
+          </div>
+        </div>
+      </div>
+      <p class="screen-credit" data-credit></p>
+    </section>
+
+    <!-- Seleccion de dificultad: cada opcion define el numero de discos inicial. -->
+    <section id="difficultyScreen" class="screen center-screen" aria-labelledby="difficultyTitle">
+      <div>
+        <p class="eyebrow">Nivel de reto</p>
+        <h2 id="difficultyTitle"><i class="bi bi-sliders title-icon" aria-hidden="true"></i>Elige dificultad</h2>
+        <p class="intro">Cada disco adicional duplica casi por completo el reto. El objetivo es completar la torre con estrategia y paciencia.</p>
+      </div>
+      <div class="difficulty-grid">
+        <button class="difficulty-card" type="button" data-disks="4" data-name="F&aacute;cil">
+          <i class="bi bi-reception-2 difficulty-icon" aria-hidden="true"></i>
+          <strong>F&aacute;cil</strong>
+          <span>4 discos</span>
+        </button>
+        <button class="difficulty-card" type="button" data-disks="5" data-name="Intermedio">
+          <i class="bi bi-reception-3 difficulty-icon" aria-hidden="true"></i>
+          <strong>Intermedio</strong>
+          <span>5 discos</span>
+        </button>
+        <button class="difficulty-card" type="button" data-disks="6" data-name="Dif&iacute;cil">
+          <i class="bi bi-reception-4 difficulty-icon" aria-hidden="true"></i>
+          <strong>Dif&iacute;cil</strong>
+          <span>6 discos</span>
+        </button>
+      </div>
+      <div class="menu-actions">
+        <button class="homeBtn" type="button"><i class="bi bi-arrow-left" aria-hidden="true"></i>Volver</button>
+      </div>
+      <p class="screen-credit" data-credit></p>
+    </section>
+
+    <!-- Reglas breves para explicar la mecanica sin revelar la solucion minima. -->
+    <section id="howToScreen" class="screen center-screen" aria-labelledby="howToTitle">
+      <div>
+        <p class="eyebrow">Reglas del juego</p>
+        <h2 id="howToTitle"><i class="bi bi-question-circle title-icon" aria-hidden="true"></i>C&oacute;mo jugar</h2>
+        <p class="intro">Mueve toda la torre desde la Torre A hasta cualquiera de las otras torres respetando las reglas del rompecabezas.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <span><i class="bi bi-hand-index-thumb" aria-hidden="true"></i>Paso 1</span>
+          <strong>Selecciona una torre</strong>
+          <p>Haz clic en una torre para tomar el disco superior. Solo se puede mover un disco a la vez.</p>
+        </div>
+        <div class="how-step">
+          <span><i class="bi bi-arrow-right-circle" aria-hidden="true"></i>Paso 2</span>
+          <strong>Elige destino</strong>
+          <p>Haz clic en otra torre para soltar el disco. Las torres v&aacute;lidas se resaltan mientras juegas.</p>
+        </div>
+        <div class="how-step">
+          <span><i class="bi bi-ban" aria-hidden="true"></i>Regla clave</span>
+          <strong>No apiles grande sobre peque&ntilde;o</strong>
+          <p>Un disco grande nunca puede colocarse encima de uno m&aacute;s peque&ntilde;o.</p>
+        </div>
+      </div>
+      <div class="menu-actions">
+        <button id="howToPlayBtn" class="primary" type="button"><i class="bi bi-play-fill" aria-hidden="true"></i>Jugar</button>
+        <button class="homeBtn" type="button"><i class="bi bi-arrow-left" aria-hidden="true"></i>Volver</button>
+      </div>
+      <p class="screen-credit" data-credit></p>
+    </section>
+
+    <!-- Ranking local: se alimenta desde localStorage por dificultad. -->
+    <section id="scoresScreen" class="screen center-screen" aria-labelledby="scoresTitle">
+      <div>
+        <p class="eyebrow">Ranking local</p>
+        <h2 id="scoresTitle"><i class="bi bi-trophy title-icon" aria-hidden="true"></i>Mejores puntuaciones</h2>
+        <p class="intro">Estos tiempos se guardan en este navegador. Cada dificultad conserva sus cinco mejores resultados.</p>
+      </div>
+      <div class="scores-grid" aria-label="Mejores tiempos por dificultad">
+        <article class="score-panel">
+          <span><i class="bi bi-reception-2" aria-hidden="true"></i>F&aacute;cil</span>
+          <ol id="scoreList4" class="score-list"></ol>
+        </article>
+        <article class="score-panel">
+          <span><i class="bi bi-reception-3" aria-hidden="true"></i>Intermedio</span>
+          <ol id="scoreList5" class="score-list"></ol>
+        </article>
+        <article class="score-panel">
+          <span><i class="bi bi-reception-4" aria-hidden="true"></i>Dif&iacute;cil</span>
+          <ol id="scoreList6" class="score-list"></ol>
+        </article>
+      </div>
+      <div class="menu-actions">
+        <button id="scoresPlayBtn" class="primary" type="button"><i class="bi bi-play-fill" aria-hidden="true"></i>Jugar</button>
+        <button class="homeBtn" type="button"><i class="bi bi-arrow-left" aria-hidden="true"></i>Volver</button>
+      </div>
+      <p class="screen-credit" data-credit></p>
+    </section>
+
+    <!-- Pantalla de juego: tablero, estado de partida y acciones durante la partida. -->
+    <section id="gameScreen" class="screen" aria-labelledby="gameTitle">
+      <header class="game-header">
+        <h2 id="gameTitle"><i class="bi bi-building-up title-icon" aria-hidden="true"></i>Torres de Hanoi</h2>
+        <div class="controls">
+          <button id="resetBtn" type="button"><i class="bi bi-arrow-clockwise" aria-hidden="true"></i>Reiniciar</button>
+          <button id="pauseBtn" class="primary" type="button"><i class="bi bi-pause-fill" aria-hidden="true"></i>Pausa</button>
+        </div>
+      </header>
+
+      <section class="status" aria-label="Estado del juego">
+        <div class="stat">
+          <span><i class="bi bi-speedometer2" aria-hidden="true"></i>Dificultad</span>
+          <strong id="difficultyLabel">F&aacute;cil</strong>
+        </div>
+        <div class="stat">
+          <span><i class="bi bi-arrow-left-right" aria-hidden="true"></i>Movimientos</span>
+          <strong id="moveCount">0</strong>
+        </div>
+        <div class="stat">
+          <span><i class="bi bi-stopwatch" aria-hidden="true"></i>Tiempo</span>
+          <strong id="timer">00:00</strong>
+        </div>
+      </section>
+
+      <div id="message" class="message" role="status"><i class="bi bi-info-circle" aria-hidden="true"></i><span>Selecciona una torre y mueve el disco superior a otra torre v&aacute;lida.</span></div>
+
+      <section class="board" aria-label="Tablero de Torres de Hanoi">
+        <div class="tower" role="button" tabindex="0" data-tower="0" aria-label="Torre A">
+          <span class="tower-label">Torre A</span>
+        </div>
+        <div class="tower" role="button" tabindex="0" data-tower="1" aria-label="Torre B">
+          <span class="tower-label">Torre B</span>
+        </div>
+        <div class="tower" role="button" tabindex="0" data-tower="2" aria-label="Torre C">
+          <span class="tower-label">Torre C</span>
+        </div>
+      </section>
+
+      <p class="screen-credit game-credit" data-credit></p>
+    </section>
+
+  </main>
+  <!-- Modal de victoria: no se cierra al hacer clic fuera para asegurar que el jugador vea su resultado. -->
+  <div id="victoryModal" class="modal-backdrop victory-backdrop" aria-hidden="true">
+    <div class="modal victory-modal" role="dialog" aria-modal="true" aria-labelledby="victoryTitle">
+      <div class="victory-hero">
+        <span class="lead-icon victory-icon"><i class="bi bi-trophy-fill" aria-hidden="true"></i></span>
+        <div>
+          <p class="eyebrow">Reto completado</p>
+          <h2 id="victoryTitle">Victoria</h2>
+          <p class="intro">Completaste la torre respetando todas las reglas.</p>
+        </div>
+      </div>
+      <div class="victory-summary" aria-label="Resumen de victoria">
+        <div>
+          <span><i class="bi bi-speedometer2" aria-hidden="true"></i>Dificultad</span>
+          <strong id="victoryDifficulty">F&aacute;cil</strong>
+        </div>
+        <div>
+          <span><i class="bi bi-arrow-left-right" aria-hidden="true"></i>Movimientos</span>
+          <strong id="victoryMoves">0</strong>
+        </div>
+        <div>
+          <span><i class="bi bi-stopwatch" aria-hidden="true"></i>Tiempo</span>
+          <strong id="victoryTime">00:00</strong>
+        </div>
+        <div>
+          <span><i class="bi bi-stars" aria-hidden="true"></i>Estrellas</span>
+          <strong id="victoryStars" class="stars" aria-label="0 estrellas"></strong>
+        </div>
+      </div>
+      <p id="recordNote" class="record-note"><i class="bi bi-award-fill" aria-hidden="true"></i> Nuevo r&eacute;cord local guardado.</p>
+      <div class="victory-actions">
+        <button id="victoryHomeBtn" class="primary" type="button"><i class="bi bi-house-fill" aria-hidden="true"></i>Volver al inicio</button>
+        <button id="victoryAgainBtn" type="button"><i class="bi bi-play-fill" aria-hidden="true"></i>Volver a jugar</button>
+        <button id="shareBtn" type="button"><i class="bi bi-share-fill" aria-hidden="true"></i>Compartir</button>
+      </div>
+      <p class="screen-credit" data-credit></p>
+    </div>
+  </div>
+  <!-- Modal de pausa: permite reanudar o salir de la partida actual. -->
+  <div id="pauseModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
+      <span class="lead-icon"><i class="bi bi-pause-fill" aria-hidden="true"></i></span>
+      <h2 id="pauseTitle">Partida en pausa</h2>
+      <p class="intro">Puedes reanudar la partida o salir a la pantalla de inicio.</p>
+      <div class="modal-actions">
+        <button id="resumeBtn" class="primary" type="button"><i class="bi bi-play-fill" aria-hidden="true"></i>Reanudar</button>
+        <button id="exitGameBtn" type="button"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Salir</button>
+      </div>
+    </div>
+  </div>
+  <template id="creditTemplate">
+    Creado por <a href="https://patitadezorro.dpdns.org" target="_blank" rel="noopener noreferrer">PatitaDeZorro</a>
+  </template>
+  <script src="assets/js/script.js" defer></script>
+</body>
+</html>
