@@ -30,4 +30,3 @@ Las mejores puntuaciones se guardan en `localStorage` por dificultad. Cada dific
 - Modal de victoria fijo, sin cierre por clic externo.
 - Sombra interactiva que sigue el puntero usando variables CSS.
 - Plantilla reutilizable para el credito del autor.
-# Juego_TorresDeHanoi
